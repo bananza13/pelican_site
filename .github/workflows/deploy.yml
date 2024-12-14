@@ -57,7 +57,24 @@ jobs:
         run: |
           # Например, заменим или добавим что-то в HTML файлы
           find output -name "*.html" -exec sed -i 's|<link href="/theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />|<link href="theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />|g' {} \;
+      # 4. Извлечение текста из text.md и вставка в index.html
+      - name: Update index.html with text.md content
+        run: |
+          # Считываем текст из text.md
+          TEXT_CONTENT=$(cat content/text.md)
+      # 5. Исправление ссылки на style.css
+      - name: Fix style.css link in index.html
+        run: |
+          sed -i 's|/theme/css/style.css|theme/css/style.css|g' index.html
 
+      # 6. Пуш изменений в репозиторий
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git add index.html
+          git commit -m "Update index.html with text.md content and fixed style.css link"
+          git push
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

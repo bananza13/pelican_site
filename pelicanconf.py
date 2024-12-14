@@ -2,7 +2,7 @@ AUTHOR = 'Alexander Osipov'
 SITENAME = 'My Pelican site'
 SITEURL = ""
 STATIC_PATHS = ['images', 'extra/style.css']
-THEME = 'themes/waterspill'
+THEME = '/themes/waterspill'
 PATH = "content"
 
 TIMEZONE = 'Europe/Rome'

@@ -29,7 +29,7 @@ jobs:
       - name: Post-process HTML
         run: |
           # Например, заменим или добавим что-то в HTML файлы
-          find output -name "*.html" -exec sed -i 's|<link href="theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />|<link href="/" type="application/atom+xml" rel="alternate" title="My Pelican site ATOM Feed" />|g' {} \;
+          find output -name "*.html" -exec sed -i 's|<link href="/theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />|<link href="theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />|g' {} \;
 
       - name: Deploy to GitHub Pages
         run: |

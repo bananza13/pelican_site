@@ -39,8 +39,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          name: build-output
+          path: ./output
           
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -55,7 +55,6 @@ jobs:
 
       - name: Post-process HTML
         run: |
-          # Например, заменим или добавим что-то в HTML файлы
           find output -name "*.html" -exec sed -i 's|<link href="/theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />|<link href="theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />|g' {} \;
 
       - name: Deploy to GitHub Pages

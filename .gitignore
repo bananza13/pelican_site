@@ -1,2 +1,4 @@
 __pycache__/
 output/
+git add .gitignore
+git commit -m "Update .gitignore to exclude unnecessary files"

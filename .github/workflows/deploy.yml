@@ -41,7 +41,16 @@ jobs:
         with:
           name: build-output
           path: ./output
-          
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-output
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GH_PAT }}
+          publish_dir: ./output
       - name: Setup Pages
         uses: actions/configure-pages@v5
         

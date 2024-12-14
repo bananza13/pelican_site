@@ -33,7 +33,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          ghp-import -n -p output
+          ghp-import -n -p -f output
           git push -f origin gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}

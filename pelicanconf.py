@@ -8,7 +8,9 @@ PATH = "content"
 TIMEZONE = 'Europe/Rome'
 
 DEFAULT_LANG = 'Russian'
-
+DEFAULT_METADATA = {
+    'status': 'published',
+}
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None

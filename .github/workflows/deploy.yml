@@ -37,3 +37,6 @@ jobs:
           git push -f origin gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+      - name: Add "Visit Site" link
+        run: |
+          echo "Visit site: https://${{ github.repository_owner }}.github.io/" >> $GITHUB_STEP_SUMMARY
